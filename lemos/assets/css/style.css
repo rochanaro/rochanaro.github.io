@@ -1,16 +1,29 @@
-/**
-* Template Name: Personal - v2.1.0
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+:root {
+  /* --primary-colors --*/
+  --white-ish:#F9F7F7;
+  --light-gray: #DBE2EF;
+  --blue-light:#3282B8;
+  --blue-medium: #3F72AF;
+  --blue-dark:#0f4c75;
+  --dark-b: rgb(17, 45, 78);
+  --darker-b:#1B262C;
+
+  /* https://colorhunt.co/palette/f9f7f7dbe2ef3f72af112d4e */
+}
+
+/* Use the root variable for primary color in your CSS */
+body {
+  background-color: var(--darker-b);
+}
+
+
 body {
   font-family: "Open Sans", sans-serif;
-  color: #fff;
+  color: var(--light-gray);
   position: relative;
   background: transparent;
 }
@@ -18,7 +31,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #010e1b;
+  background: var(--dark-b);
   background-size: cover;
   left: 0;
   right: 0;
@@ -33,11 +46,11 @@ body::before {
 }
 
 a {
-  color: #12d640;
+  color:var(--blue-light);
 }
 
 a:hover {
-  color: #12d640;
+  color: var(--blue-light);
   text-decoration: none;
 }
 
@@ -56,6 +69,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   z-index: 997;
   overflow-y: auto;
+  overflow-x: auto; /*-- new--*/
+
 }
 
 #header * {
@@ -80,12 +95,12 @@ h1, h2, h3, h4, h5, h6 {
 #header h2 {
   font-size: 24px;
   margin-top: 20px;
-  color: #12d640;
+  color:var(--blue-light);
 }
 
-#header h2 span {
-  color: #ffc107;
-  border-bottom: 2px solid #1c7d32;
+#header h2 span { /*typing on homepage*/
+  color: var(--light-gray);
+  border-bottom: 2px solid var(--blue-medium);
   padding-bottom: 6px;
 }
 
@@ -104,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
   line-height: 1;
   margin-right: 8px;
@@ -114,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .social-links a:hover {
-  background: #1c7d32;
+  background: var(--blue-medium);
 }
 
 @media (max-width: 992px) {
@@ -170,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #9e7f25;
+  background-color: var(--light-gray);
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -182,7 +197,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #12d640;
+  color: var(--blue-light);
   text-decoration: none;
 }
 
@@ -203,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #fff;
+  color: var(--light-gray);
 }
 
 .mobile-nav {
@@ -214,13 +229,13 @@ h1, h2, h3, h4, h5, h6 {
   left: 15px;
   z-index: 9999;
   overflow-y: auto;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(17, 45, 78, 0.7); /*var(--dark-b)*/
   transition: ease-in-out 0s;
   opacity: 0;
   visibility: hidden;
   border-radius: 10px;
   padding: 10px 0;
-  border: 2px solid rgba(255, 255, 255, 0.12);
+  border: 2px solid var(--blue-dark); /*rgba(255, 255, 255, 0.12);*/
 }
 
 .mobile-nav * {
@@ -232,14 +247,14 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav a {
   display: block;
   position: relative;
-  color: #fff;
+  color: var(--light-gray); /*#fff;*/ 
   padding: 10px 20px;
   font-weight: 500;
   outline: none;
 }
 
 .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
-  color: #1c7d32;
+  color: var(--blue-light);
   text-decoration: none;
 }
 
@@ -266,7 +281,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
-  color: #fff;
+  color: var(--light-gray); /*#fff;*/ 
 }
 
 /* Header Top */
@@ -276,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: #09203a;
+  background: var(--blue-dark); /*#09203a;*/
 }
 
 #header.header-top .social-links, #header.header-top h2 {
@@ -377,7 +392,7 @@ section .container {
 .about-me .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #1c7d32;
+  color: var(--blue-light);
 }
 
 .about-me .content ul {
@@ -392,7 +407,7 @@ section .container {
 .about-me .content ul i {
   font-size: 20px;
   padding-right: 2px;
-  color: #1c7d32;
+  color: var(--blue-light);
 }
 
 .about-me .content p:last-child {
@@ -908,7 +923,7 @@ section .container {
 
 .contact .info-box h3 {
   font-size: 20px;
-  color: #28a745;
+  color: var(--blue-light);
   font-weight: 700;
   margin: 10px 0 8px 68px;
 }
