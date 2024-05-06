@@ -1,0 +1,70 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+:root {
+  /* --primary-colors --*/
+  --white-ish:#F9F7F7;
+  --light-gray: #DBE2EF;
+  --blue-light:#3282B8;
+  --blue-medium: #3F72AF;
+  --blue-dark:#0f4c75;
+  --dark-b: rgb(17, 45, 78);
+  --darker-b:#1B262C;
+
+  /* https://colorhunt.co/palette/f9f7f7dbe2ef3f72af112d4e */
+}
+
+/* Use the root variable for primary color in your CSS */
+body {
+  background-color: var(--light-gray);
+  font-family: "Open Sans", sans-serif;
+  color: var(--blue-medium);
+  position: relative;
+  
+}
+
+nav {
+	background-color:var(--blue-dark)
+}
+
+.navbar-brand{
+	color:var(--light-gray) !important;
+}
+
+.nav-link{
+	color:var(--light-gray) !important;
+}
+
+a {
+  color:var(--blue-light);
+}
+
+a:hover {
+  color: var(--blue-medium) !important;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+
+/* footer */
+
+footer {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--light-gray);
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  bottom: 0;
+  z-index: 999;
+}
+
+
+#wrapper {
+  min-height: 70%;
+  height: auto;
+  height: 70%;
+}
