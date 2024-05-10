@@ -1,0 +1,96 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+:root {
+  /* --primary-colors --*/
+  --white-ish:#F9F7F7;
+  --light-gray: #DBE2EF;
+  --blue-light:#669bbc;
+  --blue-medium: #0077b6;
+  --blue-dark:#0f4c75;
+  --dark-b: #003566;
+  --gray-black: #415a77;
+  --darker-b:#1B262C;
+
+  /* https://colorhunt.co/palette/f9f7f7dbe2ef3f72af112d4e */
+}
+
+
+/* Use the root variable for primary color in your CSS */
+body {
+  background-color: var(--light-gray);
+  font-family: "Open Sans", sans-serif;
+  color: var(--gray-black);
+  
+  
+}
+
+/* .ref-author-lemos {
+    font-weight: 700; 
+    color:var(--darker-b);
+}
+
+.ref-journal{
+    font-weight: 700 !important; 
+    font-style: italic !important;
+    color:var(--blue-medium) !important;
+} */
+
+
+
+
+nav {
+	background-color:var(--blue-dark)
+}
+
+.navbar-brand{
+	color:var(--light-gray) !important;
+	font-size:1.75rem !important;
+    font-weight: 700;
+}
+
+.nav-link{
+	color:var(--light-gray) !important;
+}
+
+.navbar-expand-lg{
+    font-size:1.3rem !important;
+}
+
+
+/* buttons */
+
+
+
+
+#header_middle_letter{
+    color: var(--blue-light);
+}
+
+a {
+  color:var(--blue-light);
+}
+
+a:hover {
+  color: var(--blue-medium) !important;
+  /* text-decoration: none !important; */
+  /* font-size:1.3rem !important; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+
+/* footer */
+
+footer {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--light-gray);
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  bottom: 0;
+  z-index: 999;
+}
