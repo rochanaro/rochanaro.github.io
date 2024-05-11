@@ -8,7 +8,7 @@
   --light-gray: #DBE2EF;
   --blue-light:#669bbc;
   --blue-medium: #0077b6;
-  --blue-dark:#0f4c75;
+  --blue-dark:rgb(15, 76, 117);
   --dark-b: #003566;
   --gray-black: #415a77;
   --darker-b:#1B262C;
@@ -29,10 +29,17 @@
     color:var(--blue-medium);
 }
 
+h4, h5, p{
+    font-family: 'Ubuntu Sans', 'sans-serif';
+}
+
+
+
 li > span > a:hover {
     color: var(--blue-medium);
     text-decoration: none;
-    font-size:1.02rem ;
+    font-size:1.001rem ;
+	font-weight: 700 !important;
   }
 
 .btn-blue{
@@ -48,12 +55,14 @@ li > span > a:hover {
 }
 
 button:hover{
-    font-size:1.005rem ;
+    font-size:1.002rem ;
 }
 
 li > button > a:hover{
     color: var(--white-ish) !important;
     text-decoration: none;
 }
+
+
 
 /* body > div > ol:nth-child(7) > li > button > a */

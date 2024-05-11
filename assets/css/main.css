@@ -8,6 +8,7 @@
   --light-gray: #DBE2EF;
   --blue-light:#669bbc;
   --blue-medium: #0077b6;
+  --blue-medium-rgb: rgb(0, 119, 182);
   --blue-dark:#0f4c75;
   --dark-b: #003566;
   --gray-black: #415a77;
@@ -79,7 +80,9 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  /* font-family: "Raleway", sans-serif;
+   */
+   font-family: 'Ubuntu Sans', sans-serif;
 }
 
 
