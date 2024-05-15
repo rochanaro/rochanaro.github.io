@@ -42,20 +42,27 @@ li > span > a:hover {
 	font-weight: 700 !important;
   }
 
-.btn-blue{
+/* .btn-blue{
     color: var(--white-ish);
     background-color: var(--blue-medium);
     border-color: var(--light-gray);
-}  
+}   */
+
+.btn-blue{
+    color: var(--white-ish) !important;
+    background-color: var(--blue-light);
+    border-color: var(--light-gray);
+} 
 
 .btn-blue > a{
     color: var(--white-ish);
-    background-color: var(--blue-medium);
+    /* background-color: var(--blue-medium); */
     border-color: var(--light-gray);
 }
 
 button:hover{
-    font-size:1.002rem ;
+    font-size:1.001rem ;
+    background-color: var(--blue-medium);
 }
 
 li > button > a:hover{
