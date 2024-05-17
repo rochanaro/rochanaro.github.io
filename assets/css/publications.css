@@ -71,5 +71,11 @@ li > button > a:hover{
 }
 
 
+a:hover {
+    color: var(--blue-medium) ;
+    text-decoration: none !important;
+    /* font-size:1.3rem !important; */
+}
+
 
 /* body > div > ol:nth-child(7) > li > button > a */
