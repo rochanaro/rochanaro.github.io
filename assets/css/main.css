@@ -46,7 +46,8 @@ body {
 
 
 nav {
-	background-color:var(--blue-dark)
+	background-color:var(--blue-dark);
+    /* height: 5rem; */
 }
 
 .navbar-brand{
@@ -94,6 +95,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-lemos {
   background-color: var(--blue-dark);
+  font-size: smaller;
 }
 
 .footer-icons{
@@ -107,12 +109,14 @@ h1, h2, h3, h4, h5, h6 {
 
 #page-container {
     position: relative;
-    min-height: 100%;
+    /* min-height: 94%; */
+    min-height:93vh;
   }
   
 #content-wrap {
     /* padding-bottom: 100px;    Footer height */
     padding-bottom: 2.5rem;    /*Footer height*/
+    /* padding-top: 5rem; */
 }
 
 #footer {
@@ -121,4 +125,5 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     /* height: 100px;            Footer height */
     height: 2.5rem;            /*Footer height*/
+    
 }

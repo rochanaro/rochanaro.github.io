@@ -28,3 +28,47 @@ a:hover {
 }
 
 /* body > div > ol:nth-child(7) > li > button > a */
+
+.card-title{
+    font-weight: 800;
+}
+
+.small-lemos{
+    font-weight: 500;
+    font-size: smaller;
+    color: var(--blue-light);
+}
+
+.card{
+    background-color: var(--light-gray);
+}
+
+.card-subtitle{
+    font-weight: 700;
+    color: var(--blue-medium);
+}
+
+.span-lemos{
+    /* font-size: small; */
+    color: var(--gray-black);
+
+}
+
+.card-img-top{
+    border: var(--blue-medium) 1px solid;
+    max-width: 250px;
+}
+
+.img-lemos{
+    background-color: var(--gray-black);
+}
+
+.activity-names{
+    font-weight: 600;
+    /* font-size: 90%; */
+}
+
+.activity-lemos{
+    font-size: 95%;
+}
+
