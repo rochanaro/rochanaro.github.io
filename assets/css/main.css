@@ -6,6 +6,7 @@
   /* --primary-colors --*/
   --white-ish:#F9F7F7;
   --light-gray: #DBE2EF;
+  --bluish-gray: #e4e9f1;
   --blue-light:#669bbc;
   --blue-medium: #0077b6;
   --blue-medium-rgb: rgb(0, 119, 182);
@@ -61,7 +62,7 @@ nav {
 }
 
 .navbar-expand-lg{
-    font-size:1.3rem !important;
+    font-size:1.2rem !important;
 }
 
 

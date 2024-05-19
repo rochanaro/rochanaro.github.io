@@ -6,6 +6,7 @@
   /* --primary-colors --*/
   --white-ish:#F9F7F7;
   --light-gray: #DBE2EF;
+  --bluish-gray: #e4e9f1;
   --blue-light:#669bbc;
   --blue-medium: #0077b6;
   --blue-dark:rgb(15, 76, 117);
@@ -55,7 +56,7 @@ a:hover {
 }
 
 .card-img-top{
-    border: var(--blue-medium) 1px solid;
+    /* border: var(--blue-medium) 1px solid; */
     max-width: 250px;
 }
 
@@ -70,5 +71,12 @@ a:hover {
 
 .activity-lemos{
     font-size: 95%;
+}
+
+.card{
+	border: 1px solid var(--blue-light);
+/* 	background-color: var(--blue-medium); */
+	background-color: var(--bluish-gray);
+	
 }
 
