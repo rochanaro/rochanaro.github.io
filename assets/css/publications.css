@@ -79,3 +79,10 @@ a:hover {
 
 
 /* body > div > ol:nth-child(7) > li > button > a */
+
+.articles-card{
+	
+	background-color: var(--bluish-gray);
+	border-radius: 5px;
+	border: 1px solid var(--blue-light);
+}
