@@ -21,7 +21,11 @@ h4,h5, p{
     font-family: 'Ubuntu Sans', sans-serif;
 }
 
-a {
+/* a {
+    color: var(--gray-black);
+} */
+
+a.blog-name{
     color: var(--gray-black);
 }
 
