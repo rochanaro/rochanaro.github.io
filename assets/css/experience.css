@@ -21,15 +21,19 @@
       font-family: 'Ubuntu Sans', sans-serif;
   }
   
-  a {
+/*   a {
       color: var(--gray-black);
   }
-  
-  a:hover {
-      color: var(--blue-medium) ;
-      text-decoration: none !important;
-      /* font-size:1.3rem !important; */
-  }
+   */
+a.exp-affiliation{
+    color: var(--gray-black);
+}
+
+a:hover {
+    color: var(--blue-medium) ;
+    text-decoration: none !important;
+    /* font-size:1.3rem !important; */
+}
   
   /* body > div > ol:nth-child(7) > li > button > a */
   .card-title{
