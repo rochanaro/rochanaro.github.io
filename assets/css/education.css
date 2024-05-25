@@ -80,3 +80,24 @@ a:hover {
 	
 }
 
+
+
+.btn-blue{
+    color: var(--white-ish) !important;
+    /* background-color: none; */
+    /* background-color: var(--blue-medium); */
+    background-color: var(--blue-light);
+    /* border: 2px solid var(--blue-medium); */
+}  
+
+.btn-blue > a{
+    color: var(--white-ish);
+    background-color: var(--blue-medium);
+    border-color: var(--light-gray);
+}
+
+button:hover{
+    font-size:1.0001rem ;
+    background-color: var(--blue-medium);
+    /* color: var(--white-ish) !important; */
+}
