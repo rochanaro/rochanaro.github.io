@@ -100,3 +100,21 @@ button:hover{
     background-color: var(--blue-medium);
     /* color: var(--white-ish) !important; */
 }
+
+
+
+.responsive-text {
+    font-size: 0.8rem; /* Base font size for extra small screens */
+}
+
+@media (min-width: 300px) {
+    .responsive-text {
+        font-size: 0.8rem; /* Small screens */
+    }
+}
+
+@media (min-width: 576px) {
+    .responsive-text {
+        font-size: 1rem; /* Medium screens */
+    }
+}
