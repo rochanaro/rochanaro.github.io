@@ -99,6 +99,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: smaller;
 }
 
+.footer-lemos-nifme {
+    background-color: var(--darker-b);
+    font-size: smaller;
+  }
+
 .footer-icons{
     color: var(--blue-light);   
 }
