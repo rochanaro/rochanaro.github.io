@@ -1,2 +1,2 @@
-# rochana.github.io
-Personal Website for Rochana Obadage
+# rochanaro.github.io
+Personal Website for Rochana R. Obadage
