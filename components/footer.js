@@ -20,7 +20,7 @@ class Footer extends HTMLElement {
                     <p class="mb-0" style="color: var(--light-gray);">Quick Links</p>
                     <p class="my-0 pt-0">
                         <a href=""><i class="mr-3 footer-icons fa-solid fa-house" aria-hidden="true"></i></a>
-                        <a href="https://www.linkedin.com/in/rochana-rumalshan" target="_blank"><i class="mr-3 fab footer-icons fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/rochanaro" target="_blank"><i class="mr-3 fab footer-icons fa-linkedin" aria-hidden="true"></i></a>
                         <a href="https://scholar.google.com/citations?user=pXdNaIQAAAAJ&hl=en" target="_blank"><i class="mr-3 footer-icons fa-brands fa-google-scholar" aria-hidden="true"></i></a>
                         <a href="https://github.com/rochanaro" target="_blank"><i class="mr-3 fab footer-icons fa-github" aria-hidden="true"></i></a>
                         <a href="https://twitter.com/rochanaro" target="_blank"><i class="footer-icons fa-brands fa-x-twitter" aria-hidden="true"></i></a>
