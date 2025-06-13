@@ -4,13 +4,16 @@ class Footer extends HTMLElement {
   }
 
   connectedCallback() {
+    const startYear = 2024;
+    const currentYear = new Date().getFullYear();
+    const yearDisplay = startYear === currentYear ? `${startYear}` : `${startYear}–${currentYear}`;
     this.innerHTML = `
     <div class="footer-lemos mt-5">
 
         <div class="py-3 px-md-5 container-fluid">
             <div class="row">
                 <div class="col-auto col-md-5 align-middle">
-                    <p class="mb-0" style="color: var(--light-gray);">© 2024 Rochana R. Obadage</p>
+                    <p class="mb-0" style="color: var(--light-gray);">© ${yearDisplay} Rochana R. Obadage</p>
 
                 </div>
 
