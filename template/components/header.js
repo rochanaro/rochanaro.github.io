@@ -14,28 +14,28 @@ class Header extends HTMLElement {
         <div class="navbar-collapse collapse" id="navbarCollapse" style="">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mr-2">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/template/">Home</a>
             </li>
             <li class="nav-item mr-2">
-              <a class="nav-link" href="/pages/education.html">Education</a>
+              <a class="nav-link" href="/template/pages/education.html">Education</a>
             </li>
             <li class="nav-item mr-2">
-              <a class="nav-link" href="/pages/experience.html">Experience</a>
+              <a class="nav-link" href="/template/pages/experience.html">Experience</a>
             </li>
             <li class="nav-item mr-2">
-              <a class="nav-link" href="/pages/skills.html">Skills</a>
+              <a class="nav-link" href="/template/pages/skills.html">Skills</a>
             </li>
             <li class="nav-item mr-2">
-              <a class="nav-link" href="/pages/teaching.html">Teaching</a>
+              <a class="nav-link" href="/template/pages/teaching.html">Teaching</a>
             </li>
             <li class="nav-item mr-2">
-              <a class="nav-link" href="/pages/projects.html">Projects</a>
+              <a class="nav-link" href="/template/pages/projects.html">Projects</a>
             </li> 
             <li class="nav-item mr-2">
-              <a class="nav-link" href="/pages/publications.html">Publications</a>
+              <a class="nav-link" href="/template/pages/publications.html">Publications</a>
             </li>
             <li class="nav-item mr-2">
-              <a class="nav-link" href="/pages/blogposts.html">Blogs</a>
+              <a class="nav-link" href="/template/pages/blogposts.html">Blogs</a>
             </li>
           </ul>
         </div>
