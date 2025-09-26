@@ -115,3 +115,24 @@ button > a:hover{
     color: var(--white-ish) !important;
     text-decoration: none;
 }
+
+.filter-btn{
+    color: var(--blue-medium) !important;
+    background-color: none; 
+    border-color: var(--blue-medium);
+    border: 1px solid var(--blue-medium);
+}  
+
+.filter-btn:hover{
+    color: var(--white-ish) !important;
+    background-color: var(--blue-medium); 
+    border-color: var(--light-gray);
+}
+
+.filter-btn.active {
+    color: var(--white-ish) !important;
+    background-color: var(--blue-medium); 
+    border-color: var(--blue-medium);
+    font-weight: 600;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
