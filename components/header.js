@@ -42,7 +42,20 @@ class Header extends HTMLElement {
         </nav>
       </header>
     `;
+
+    // Highlight active tab
+    const links = this.querySelectorAll('.nav-link'); // query **inside the component**
+    const currentPath = window.location.pathname;
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active'); // make sure you have CSS for .active
+      }
+    });
+        
   }
 }
 
 customElements.define('header-component', Header);
+
+

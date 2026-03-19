@@ -66,6 +66,11 @@ nav {
 }
 
 
+.nav-link.active {
+  border-bottom: 2px solid var(--light-gray); /* white underline for dark navbar */
+}
+/*var(--light-gray)*/
+
 /* buttons */
 
 
