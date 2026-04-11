@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODU RecWell Bicycle Inventory Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Wireframe Header Styles */
+        .wireframe-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .wireframe-header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .wireframe-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* View Selector Styles */
+        .view-selector {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .view-selector button {
+            padding: 12px 30px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: 2px solid #3498db;
+            background: white;
+            color: #3498db;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .view-selector button.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .view-selector button:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Login Screen Styles */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 140px);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-card h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .login-card p {
+            text-align: left;
+            color: #666;
+            margin-bottom: 0px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .demo-credentials {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .demo-credentials h4 {
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .demo-credentials code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #667eea;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Main Dashboard Styles */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Student View Styles */
+        .student-view {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .student-card {
+            background: white;
+            border-radius: 15px;
+            padding: 50px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .student-card h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        .availability-display {
+            margin: 40px 0;
+        }
+
+        .big-number {
+            font-size: 96px;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 20px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .big-number.zero {
+            color: #e74c3c;
+        }
+
+        .availability-label {
+            font-size: 18px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .status-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            padding: 30px 0;
+            border-top: 2px solid #ecf0f1;
+        }
+
+        .status-item {
+            text-align: center;
+        }
+
+        .status-item .number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        .status-item .label {
+            font-size: 13px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        .last-updated {
+            margin-top: 30px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .auto-refresh {
+            display: inline-block;
+            margin-left: 10px;
+            color: #27ae60;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .staff-login-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .staff-login-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .staff-login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Staff View Styles */
+        .staff-view {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .staff-header {
+            background: white;
+            padding: 25px 35px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .staff-header h2 {
+            color: #2c3e50;
+            font-size: 26px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .username-display {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .username-display strong {
+            color: #2c3e50;
+        }
+
+        .logout-btn {
+            padding: 10px 24px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #c0392b;
+        }
+
+        .staff-content {
+            background: white;
+            padding: 35px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .stat-card {
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-card.available {
+            border-color: #27ae60;
+            background: #0080002b;
+            color:#27ae60;
+        }
+
+        .stat-card.rented {
+            border-color: #3498db;
+            background: #d1ecf1;
+            
+        }
+
+        .stat-card.repair {
+            border-color: #e67e22;
+            background: #fff3cd;
+        }
+
+        .stat-card .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 14px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .bike-list h3 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .bike-item {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .bike-item:hover {
+            background: #fff;
+            border-color: #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .bike-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bike-number {
+            font-weight: 600;
+            font-size: 18px;
+            color: #2c3e50;
+            min-width: 90px;
+        }
+
+        .status-badge {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-badge.available {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-badge.rented {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .status-badge.repair {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .bike-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            border: 2px solid;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .available-btn {
+            border-color: #27ae60;
+            color: #27ae60;
+        }
+
+        .available-btn:not(:disabled):hover {
+            background: #27ae60;
+            color: white;
+        }
+
+        .rented-btn {
+            border-color: #3498db;
+            color: #3498db;
+        }
+
+        .rented-btn:not(:disabled):hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .repair-btn {
+            border-color: #e67e22;
+            color: #e67e22;
+        }
+
+        .repair-btn:not(:disabled):hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #2c3e50;
+            color: white;
+            padding: 18px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+            transform: translateX(400px);
+            transition: transform 0.3s;
+            max-width: 350px;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .student-card {
+                padding: 30px 20px;
+            }
+
+            .big-number {
+                font-size: 72px;
+            }
+
+            .status-breakdown {
+                gap: 15px;
+            }
+
+            .summary-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .bike-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .bike-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+
+            .staff-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .header-right {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .login-container {
+                min-height: calc(100vh - 120px);
+            }
+
+            .view-selector button {
+                padding: 10px 20px;
+                margin: 5px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="wireframe-header">
+        <h1>ODU RecWell Bicycle Inventory Dashboard</h1>
+        <!-- <p>Real-time bicycle availability and inventory management system</p> -->
+    </div>
+
+    <!-- View Selector - Always Visible -->
+    <div class="view-selector">
+        <button onclick="showStudentView()" id="studentBtn" class="active">Student View (Public)</button>
+        <button onclick="handleStaffViewClick()" id="staffBtn">Staff View (Management)</button>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container hidden">
+        <div class="login-card">
+            <h2>🔐 Staff Login</h2>
+            <p style="text-align: center;">ODU RecWell Bicycle Inventory Management</p>
+            
+            <div id="errorMessage" class="error-message">
+                Invalid username or password. Please try again.
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="login-btn">Login to Dashboard</button>
+            </form>
+
+            <div class="demo-credentials">
+                <h4>Demo Credentials for Evaluators:</h4>
+                <p><strong>Username:</strong> <code>staff</code></p>
+                <p style="mar"><strong>Password:</strong> <code>recwell2025</code></p>
+<!--                 <p style="margin-top: 10px; font-size: 12px; color: #888;">
+                    Alternative: username: <code>jordan</code>, password: <code>bikes123</code>
+                </p> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Student View (Public) -->
+    <div id="studentView" class="student-view hidden">
+        <div class="student-card">
+            <h2>🚲 Bicycle Availability</h2>
+            
+            <div class="availability-display">
+                <div class="availability-label">Bicycles Available Right Now</div>
+                <div class="big-number" id="availableCount">5</div>
+            </div>
+
+            <div class="status-breakdown">
+                <div class="status-item">
+                    <div class="number" id="totalCount">12</div>
+                    <div class="label">Total Bikes</div>
+                </div>
+                <div class="status-item">
+                    <div class="number" id="rentedCount">4</div>
+                    <div class="label">Currently Rented</div>
+                </div>
+                <div class="status-item">
+                    <div class="number" id="repairCount">3</div>
+                    <div class="label">Under Repair</div>
+                </div>
+            </div>
+
+            <div class="last-updated">
+                Last updated: <span id="lastUpdated">Just now</span>
+                <span class="auto-refresh">● Auto-refreshing</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staff View (Management) -->
+    <div id="staffView" class="staff-view hidden">
+        <div class="staff-header">
+            <h2>🔧 Inventory Management</h2>
+            <div class="header-right">
+                <div class="username-display">
+                    Logged in as: <strong id="currentUser">Staff</strong>
+                </div>
+                <button class="logout-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+
+        <div class="staff-content">
+            <div class="summary-stats">
+                <div class="stat-card available">
+                    <div class="stat-number" id="staffAvailableCount">5</div>
+                    <div class="stat-label">Available</div>
+                </div>
+                <div class="stat-card rented">
+                    <div class="stat-number" id="staffRentedCount">4</div>
+                    <div class="stat-label">Rented Out</div>
+                </div>
+                <div class="stat-card repair">
+                    <div class="stat-number" id="staffRepairCount">3</div>
+                    <div class="stat-label">Under Repair</div>
+                </div>
+            </div>
+
+            <div class="bike-list">
+                <h3>All Bicycles - Click buttons to update status</h3>
+                <div id="bikeListContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // Initialize bike data
+        let bikes = [
+            { id: 1, number: 'Bike #01', status: 'available' },
+            { id: 2, number: 'Bike #02', status: 'available' },
+            { id: 3, number: 'Bike #03', status: 'rented' },
+            { id: 4, number: 'Bike #04', status: 'available' },
+            { id: 5, number: 'Bike #05', status: 'rented' },
+            { id: 6, number: 'Bike #06', status: 'repair' },
+            { id: 7, number: 'Bike #07', status: 'available' },
+            { id: 8, number: 'Bike #08', status: 'rented' },
+            { id: 9, number: 'Bike #09', status: 'repair' },
+            { id: 10, number: 'Bike #10', status: 'available' },
+            { id: 11, number: 'Bike #11', status: 'rented' },
+            { id: 12, number: 'Bike #12', status: 'repair' }
+        ];
+
+        // Demo credentials
+        const validCredentials = [
+            { username: 'staff', password: 'recwell2025' },
+            { username: 'jordan', password: 'bikes123' }
+        ];
+
+        let currentUsername = null;
+
+        // Handle Staff View button click - redirect to login if not logged in
+        function handleStaffViewClick() {
+            if (currentUsername) {
+                showStaffView();
+            } else {
+                showLogin();
+            }
+        }
+
+        // Handle login
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            
+            const isValid = validCredentials.some(
+                cred => cred.username === username && cred.password === password
+            );
+            
+            if (isValid) {
+                currentUsername = username;
+                document.getElementById('errorMessage').classList.remove('show');
+                showStaffView();
+            } else {
+                document.getElementById('errorMessage').classList.add('show');
+                document.getElementById('password').value = '';
+            }
+        }
+
+        // Show login screen
+        function showLogin() {
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('studentView').classList.add('hidden');
+            document.getElementById('staffView').classList.add('hidden');
+            document.querySelector('.wireframe-header').style.display = 'block';
+            document.querySelector('.view-selector').style.display = 'block';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('errorMessage').classList.remove('show');
+        }
+
+        // Show student view
+        function showStudentView() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('studentView').classList.remove('hidden');
+            document.getElementById('staffView').classList.add('hidden');
+            document.querySelector('.wireframe-header').style.display = 'block';
+            document.querySelector('.view-selector').style.display = 'block';
+            document.getElementById('studentBtn').classList.add('active');
+            document.getElementById('staffBtn').classList.remove('active');
+            updateCounts();
+        }
+
+        // Show staff view
+        function showStaffView() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('studentView').classList.add('hidden');
+            document.getElementById('staffView').classList.remove('hidden');
+            document.querySelector('.wireframe-header').style.display = 'block';
+            document.querySelector('.view-selector').style.display = 'block';
+            document.getElementById('studentBtn').classList.remove('active');
+            document.getElementById('staffBtn').classList.add('active');
+            document.getElementById('currentUser').textContent = currentUsername.charAt(0).toUpperCase() + currentUsername.slice(1);
+            updateCounts();
+            renderBikeList();
+            showNotification(`Welcome back, ${currentUsername}!`);
+        }
+
+        // Handle logout
+        function handleLogout() {
+            currentUsername = null;
+            showStudentView();
+            showNotification('Logged out successfully');
+        }
+
+        // Update counts
+        function updateCounts() {
+            const available = bikes.filter(b => b.status === 'available').length;
+            const rented = bikes.filter(b => b.status === 'rented').length;
+            const repair = bikes.filter(b => b.status === 'repair').length;
+            const total = bikes.length;
+
+            // Student view
+            const availableEl = document.getElementById('availableCount');
+            availableEl.textContent = available;
+            availableEl.classList.toggle('zero', available === 0);
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('rentedCount').textContent = rented;
+            document.getElementById('repairCount').textContent = repair;
+
+            // Staff view
+            document.getElementById('staffAvailableCount').textContent = available;
+            document.getElementById('staffRentedCount').textContent = rented;
+            document.getElementById('staffRepairCount').textContent = repair;
+
+            // Update timestamp
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('lastUpdated').textContent = timeString;
+        }
+
+        // Render bike list for staff
+        function renderBikeList() {
+            const container = document.getElementById('bikeListContainer');
+            container.innerHTML = '';
+
+            bikes.forEach(bike => {
+                const item = document.createElement('div');
+                item.className = 'bike-item';
+                
+                item.innerHTML = `
+                    <div class="bike-info">
+                        <div class="bike-number">${bike.number}</div>
+                        <span class="status-badge ${bike.status}">${bike.status}</span>
+                    </div>
+                    <div class="bike-actions">
+                        <button class="action-btn available-btn" 
+                                onclick="updateBikeStatus(${bike.id}, 'available')"
+                                ${bike.status === 'available' ? 'disabled' : ''}>
+                            Available
+                        </button>
+                        <button class="action-btn rented-btn" 
+                                onclick="updateBikeStatus(${bike.id}, 'rented')"
+                                ${bike.status === 'rented' ? 'disabled' : ''}>
+                            Rented
+                        </button>
+                        <button class="action-btn repair-btn" 
+                                onclick="updateBikeStatus(${bike.id}, 'repair')"
+                                ${bike.status === 'repair' ? 'disabled' : ''}>
+                            Repair
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(item);
+            });
+        }
+
+        // Update bike status
+        function updateBikeStatus(bikeId, newStatus) {
+            const bike = bikes.find(b => b.id === bikeId);
+            const oldStatus = bike.status;
+            bike.status = newStatus;
+            
+            updateCounts();
+            renderBikeList();
+            showNotification(`${bike.number} status changed from "${oldStatus}" to "${newStatus}"`);
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Simulate auto-refresh (in real implementation, this would fetch from server)
+        setInterval(() => {
+            updateCounts();
+        }, 30000);
+
+        // Initialize - show student view on load
+        window.onload = function() {
+            showStudentView();
+        };
+    </script>
+</body>
+</html>

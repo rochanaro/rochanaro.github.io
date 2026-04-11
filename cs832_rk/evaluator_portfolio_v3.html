@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicycle Inventory Dashboard - Evaluator Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            font-size: 26px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .card h3 {
+            color: #34495e;
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card h4 {
+            color: #555;
+            font-size: 17px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .card ul, .card ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .prototype-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .prototype-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .highlight-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .credentials-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .credentials-box code {
+            background: rgba(0,0,0,0.05);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+            font-size: 14px;
+        }
+
+        .persona-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .scenario-box {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .task-flow {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+
+            .prototype-link {
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚲 ODU RecWell Bicycle Inventory Dashboard</h1>
+        <p>HW4 Prototype - Rochana Obadage, Kumushini Thennakoon</p>
+    </div>
+
+    <div class="container">
+        <!-- Section 1: Prototype Link -->
+        <div class="card">
+            <h2><span class="section-number">1</span>Prototype Access</h2>
+            <p style="margin-bottom: 25px;">Click the button below to access the interactive bicycle inventory dashboard prototype:</p>
+            <div style="text-align: center;">
+                <a href="bicycle_inventory_dashboard.html" class="prototype-link" target="_blank">
+                    Launch Prototype →
+                </a>
+            </div>
+
+            <div class="credentials-box" style="margin-top: 30px;">
+                <h4>🔑 Staff Login Credentials for Evaluators</h4>
+                <p style="margin-top: 15px;"><strong>Option 1:</strong></p>
+                <p>Username: <code>staff</code><br>
+                Password: <code>recwell2025</code></p>
+                <p style="margin-top: 10px;"><strong>Option 2:</strong></p>
+                <p>Username: <code>jordan</code><br>
+                Password: <code>bikes123</code></p>
+                <p style="margin-top: 15px; font-size: 14px; color: #666;">
+                    <em>Note: The student view (public availability display) is shown by default and does not require login.</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 2: Startup Instructions -->
+        <div class="card">
+            <h2><span class="section-number">2</span>Startup Instructions</h2>
+            
+            <h3>Platform Requirements</h3>
+            <ul>
+                <li><strong>Browser:</strong> Modern web browser (Chrome, Firefox, Safari, or Edge - latest version recommended)</li>
+                <li><strong>Platform:</strong> Works on desktop computers, laptops, tablets, and mobile devices</li>
+                <li><strong>Screen Size:</strong> Optimized for screens 375px and larger (responsive design)</li>
+                <li><strong>Internet Connection:</strong> Not required - prototype runs entirely in browser</li>
+                <li><strong>JavaScript:</strong> Must be enabled (enabled by default in all modern browsers)</li>
+            </ul>
+
+            <h3>How to Start the Prototype</h3>
+            <ol>
+                <li>Click the "Launch Prototype" button above or open the <code>bicycle_inventory_dashboard.html</code> file</li>
+                <li>The prototype will open showing the <strong>Student View</strong> (public availability display)</li>
+                <li>To access the <strong>Staff Management Interface</strong>, click the "Staff Login" link at the bottom</li>
+                <li>Enter the credentials provided above to log in</li>
+                <li>Click "Logout" at any time to return to the student view</li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4>💡 Quick Navigation Tips</h4>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Student View:</strong> Default view - shows real-time bicycle availability to all users</li>
+                    <li><strong>Staff Login:</strong> Click the link at the bottom of the student view to access the login screen</li>
+                    <li><strong>Staff Dashboard:</strong> After login, manage all bicycles and update their status</li>
+                    <li><strong>Logout:</strong> Returns you to the public student view</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3: Briefing -->
+        <div class="card">
+            <h2><span class="section-number">3</span>Briefing - Background Information</h2>
+
+            <h3>Project Overview</h3>
+            <p>
+                This prototype addresses a critical gap identified in the ODU RecWell bicycle rental service through ethnographic research. 
+                Currently, students must physically visit the rental desk to check bicycle availability, leading to wasted time and frustration 
+                when bikes are unavailable. Additionally, front desk staff lack an efficient tool to manage and update bicycle status as rentals 
+                and returns occur throughout the day.
+            </p>
+
+            <p>
+                The <strong>Bicycle Inventory Dashboard</strong> is a web-based solution that serves two primary user groups:
+            </p>
+            <ul>
+                <li><strong>Students:</strong> Check real-time bicycle availability before visiting RecWell</li>
+                <li><strong>Front Desk Staff:</strong> Quickly update bicycle status (available, rented, under repair)</li>
+            </ul>
+
+            <h3>Primary Task Scenarios</h3>
+
+            <div class="scenario-box">
+                <h4>Scenario 1: Student Checking Bicycle Availability</h4>
+                <p>
+                    <strong>User:</strong> Alex (Graduate Student)<br>
+                    <strong>Goal:</strong> Check if bicycles are available before making the trip to RecWell
+                </p>
+                <p style="margin-top: 10px;">
+                    Alex is a graduate student who wants to rent a bicycle for the afternoon. Before leaving their apartment, 
+                    they want to check if bikes are currently available at RecWell to avoid making an unnecessary trip. Alex 
+                    accesses the bicycle inventory dashboard on their phone, views the current availability, and decides whether 
+                    to visit the rental desk based on real-time information.
+                </p>
+                <p style="margin-top: 10px; font-style: italic; color: #555;">
+                    <strong>Expected Outcome:</strong> Alex sees "5 Bicycles Available" and decides to walk to RecWell, 
+                    confident that bikes are in stock.
+                </p>
+            </div>
+
+            <div class="scenario-box">
+                <h4>Scenario 2: Front Desk Staff Updating Inventory Status</h4>
+                <p>
+                    <strong>User:</strong> Jordan (RecWell Front Desk Staff)<br>
+                    <strong>Goal:</strong> Quickly update the system when bicycles are rented, returned, or need repair
+                </p>
+                <p style="margin-top: 10px;">
+                    Jordan works at the ODU Outdoor Adventure Center front desk. Throughout her shift, students rent bicycles 
+                    and return them. Some returned bikes need repairs before being rented again. Jordan needs to quickly update 
+                    the system to reflect which bikes are available, rented, or under repair so that the real-time display 
+                    remains accurate for students.
+                </p>
+                <p style="margin-top: 10px; font-style: italic; color: #555;">
+                    <strong>Expected Outcome:</strong> Jordan clicks "Rented" on Bike #3 after a student checks it out. 
+                    The public display immediately updates to show one fewer bike available.
+                </p>
+            </div>
+
+            <h3>Hierarchical Task Analysis</h3>
+
+            <div class="task-flow">
+                <h4>Task 1: Check Bicycle Availability (Student)</h4>
+                <ol>
+                    <li><strong>Access the dashboard</strong>
+                        <ul>
+                            <li>Navigate to the bicycle inventory webpage</li>
+                            <li>Wait for page to load</li>
+                        </ul>
+                    </li>
+                    <li><strong>View current status</strong>
+                        <ul>
+                            <li>Read total available bikes</li>
+                            <li>Check last updated timestamp</li>
+                        </ul>
+                    </li>
+                    <li><strong>Make decision</strong>
+                        <ul>
+                            <li>If bikes available → plan to visit RecWell</li>
+                            <li>If no bikes available → delay trip or make alternative plans</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p style="margin-top: 10px;"><strong>Plan:</strong> Do steps 1→2→3 sequentially. Stop when decision is made.</p>
+            </div>
+
+            <div class="task-flow">
+                <h4>Task 2: Update Bicycle Inventory (Staff)</h4>
+                <ol>
+                    <li><strong>Authenticate to staff interface</strong>
+                        <ul>
+                            <li>Enter staff credentials</li>
+                            <li>Access inventory management panel</li>
+                        </ul>
+                    </li>
+                    <li><strong>Process bicycle transaction</strong>
+                        <ul>
+                            <li>Identify transaction type (rental, return, repair)</li>
+                            <li>Select appropriate bicycle from list</li>
+                        </ul>
+                    </li>
+                    <li><strong>Update status</strong>
+                        <ul>
+                            <li>Click appropriate status button</li>
+                            <li>Confirm changes</li>
+                            <li>Verify real-time display updates</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p style="margin-top: 10px;"><strong>Plan:</strong> Do step 1 once at shift start, then repeat steps 2-3 for each transaction throughout the shift.</p>
+            </div>
+
+            <h3>User Personas</h3>
+
+            <div class="persona-card">
+                <h4>👤 Persona 1: Alex Chen - Graduate Student</h4>
+                <p><strong>Demographics:</strong></p>
+                <ul>
+                    <li>Age: 24</li>
+                    <li>Status: Graduate student in Computer Science</li>
+                    <li>Tech proficiency: High</li>
+                    <li>Bike usage: 2-3 times per month for errands and recreation</li>
+                </ul>
+                <p><strong>Goals:</strong></p>
+                <ul>
+                    <li>Rent bikes conveniently without wasted trips</li>
+                    <li>Plan activities around bike availability</li>
+                    <li>Save time in their busy schedule</li>
+                </ul>
+                <p><strong>Pain Points:</strong></p>
+                <ul>
+                    <li>Has made trips to RecWell only to find no bikes available</li>
+                    <li>Cannot plan outdoor activities confidently</li>
+                    <li>Wastes 20-30 minutes on unsuccessful rental attempts</li>
+                </ul>
+                <p style="margin-top: 15px; font-style: italic; background: rgba(0,0,0,0.03); padding: 10px; border-radius: 5px;">
+                    <strong>Quote:</strong> "I just want to know if there are bikes available before I walk all the way over there. 
+                    A simple yes or no would save me so much time."
+                </p>
+            </div>
+
+            <div class="persona-card">
+                <h4>👤 Persona 2: Jordan Martinez - RecWell Front Desk Staff</h4>
+                <p><strong>Demographics:</strong></p>
+                <ul>
+                    <li>Age: 21</li>
+                    <li>Status: Undergraduate student, part-time RecWell employee</li>
+                    <li>Tech proficiency: Moderate</li>
+                    <li>Work schedule: 15-20 hours/week at rental desk</li>
+                </ul>
+                <p><strong>Goals:</strong></p>
+                <ul>
+                    <li>Process rentals and returns efficiently</li>
+                    <li>Keep inventory information accurate and up-to-date</li>
+                    <li>Minimize student disappointment due to inaccurate availability</li>
+                </ul>
+                <p><strong>Pain Points:</strong></p>
+                <ul>
+                    <li>Current system is slow to update during busy periods</li>
+                    <li>Students arrive expecting bikes based on outdated information</li>
+                    <li>No efficient way to mark bikes as needing repair</li>
+                </ul>
+                <p style="margin-top: 15px; font-style: italic; background: rgba(0,0,0,0.03); padding: 10px; border-radius: 5px;">
+                    <strong>Quote:</strong> "When it gets busy, I need to update the system quickly. If it takes too long, 
+                    the availability display becomes useless because it's already out of date."
+                </p>
+            </div>
+
+            <h3>Use Cases</h3>
+
+            <div class="highlight-box">
+                <h4>Use Case 1: Student Checks Availability Before Visit</h4>
+                <p><strong>Actor:</strong> Student (Alex)</p>
+                <p><strong>Preconditions:</strong></p>
+                <ul>
+                    <li>Dashboard is accessible online</li>
+                    <li>Inventory has been updated recently by staff</li>
+                </ul>
+                <p><strong>Main Flow:</strong></p>
+                <ol>
+                    <li>Alex opens the bicycle dashboard URL on their smartphone</li>
+                    <li>System displays current availability status</li>
+                    <li>Alex sees "5 bicycles available" with timestamp "Last updated: 1 minute ago"</li>
+                    <li>Alex decides to walk to RecWell to rent a bike</li>
+                </ol>
+                <p><strong>Alternative Flow:</strong> No bikes available</p>
+                <ul>
+                    <li>Step 3a: Alex sees "0 bicycles available"</li>
+                    <li>Step 4a: Alex decides to check back later or make other plans</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 20px;">
+                <h4>Use Case 2: Staff Updates Bicycle Inventory Status</h4>
+                <p><strong>Actor:</strong> Staff Member (Jordan)</p>
+                <p><strong>Preconditions:</strong></p>
+                <ul>
+                    <li>Staff member is logged into the inventory management system</li>
+                    <li>Bicycle records already exist in the system</li>
+                </ul>
+                <p><strong>Main Flow - Bicycle is Rented:</strong></p>
+                <ol>
+                    <li>Jordan opens the staff inventory management interface</li>
+                    <li>A student rents a bicycle from the front desk</li>
+                    <li>Jordan selects the bicycle in the system</li>
+                    <li>Jordan changes its status from "Available" to "Rented"</li>
+                    <li>System updates the inventory count automatically</li>
+                    <li>Public dashboard reflects the updated bicycle availability</li>
+                </ol>
+                <p><strong>Alternative Flow 2a:</strong> Bicycle is returned in good condition</p>
+                <ul>
+                    <li>Jordan changes status from "Rented" to "Available"</li>
+                    <li>System increases available bicycle count</li>
+                </ul>
+                <p><strong>Alternative Flow 2b:</strong> Bicycle requires repair after return</p>
+                <ul>
+                    <li>Jordan changes status from "Rented" to "Under Repair"</li>
+                    <li>System excludes bicycle from available inventory</li>
+                </ul>
+            </div>
+
+            <h3>Design Rationale</h3>
+
+            <h4>Student View Design</h4>
+            <p>
+                The student view prioritizes <strong>immediate information visibility</strong>. The large number (96pt font) ensures 
+                the availability count is readable at a glance, even on mobile devices. The color changes from green (bikes available) 
+                to red (no bikes) provide instant visual feedback. The breakdown section gives context without cluttering the main display. 
+                Auto-refresh every 30 seconds ensures students always see current data without manual page reloads.
+            </p>
+
+            <h4>Staff Management Interface Design</h4>
+            <p>
+                The staff interface optimizes for <strong>speed and efficiency</strong>. Each bike entry shows its current status with 
+                color-coded badges (green = available, blue = rented, orange = repair) and provides three buttons for quick status changes. 
+                The current status button is disabled to prevent redundant clicks. Staff can update a bike's status in under 5 seconds: 
+                click the appropriate button, see confirmation notification, done. This efficiency is critical during busy periods when 
+                multiple students are renting or returning bikes simultaneously.
+            </p>
+
+            <h3>Interaction Flow Examples</h3>
+
+            <div class="scenario-box">
+                <h4>Example 1: Student Checks Before Visiting</h4>
+                <ol>
+                    <li>Student opens URL on phone: <code>odu.edu/recwell/bikes</code></li>
+                    <li>Page loads in < 2 seconds, shows "5 Bicycles Available"</li>
+                    <li>Student sees "Last updated: 2:34 PM" (current time is 2:35 PM)</li>
+                    <li>Student decides to walk to RecWell</li>
+                </ol>
+                <p><strong>Total interaction time:</strong> ~5 seconds</p>
+            </div>
+
+            <div class="scenario-box">
+                <h4>Example 2: Staff Processes a Rental</h4>
+                <ol>
+                    <li>Student completes rental paperwork, assigned Bike #7</li>
+                    <li>Staff opens inventory panel (already logged in)</li>
+                    <li>Staff locates Bike #7 (currently showing "Available" badge)</li>
+                    <li>Staff clicks "Rented" button</li>
+                    <li>System shows notification: "Bike #7 status changed to Rented"</li>
+                    <li>Public view updates: "4 Bicycles Available" (was 5)</li>
+                </ol>
+                <p><strong>Total update time:</strong> < 10 seconds</p>
+            </div>
+
+            <div class="scenario-box">
+                <h4>Example 3: Staff Marks Bike for Repair</h4>
+                <ol>
+                    <li>Student returns Bike #3, reports chain issue</li>
+                    <li>Staff inspects bike, confirms it needs repair</li>
+                    <li>Staff locates Bike #3 in system (showing "Rented")</li>
+                    <li>Staff clicks "Repair" button instead of "Available"</li>
+                    <li>Bike removed from available count</li>
+                    <li>Students see accurate availability (bike not counted as available)</li>
+                </ol>
+                <p><strong>Result:</strong> System maintains accuracy - broken bikes don't mislead students</p>
+            </div>
+
+            <h3>Prototype Fidelity Notes</h3>
+            <div class="highlight-box">
+                <p><strong>High Fidelity - Look:</strong> The prototype uses professional colors, fonts, spacing, and modern UI design 
+                patterns that represent the final implementation.</p>
+                
+                <p><strong>Medium Fidelity - Feel:</strong> The prototype runs in a web browser with interactive buttons and real-time 
+                updates. Some advanced features (like actual database connectivity) are simulated.</p>
+                
+                <p><strong>Medium Fidelity - Breadth:</strong> The prototype supports both main scenarios (student checking availability 
+                and staff updating inventory) with all major screens and workflows.</p>
+                
+                <p><strong>Low Fidelity - Depth:</strong> No backend implementation. All data is stored in browser memory. Staff authentication 
+                uses hardcoded credentials. Updates are client-side only.</p>
+            </div>
+
+            <h3>System Scope and Limitations</h3>
+            <div class="credentials-box">
+                <h4>⚠️ Important Note for Evaluators</h4>
+                <p style="margin-top: 10px;">
+                    The current dashboard supports <strong>managing the status of only the bikes already added to the system</strong>. 
+                    The prototype includes 12 pre-configured bicycles (Bike #01 through Bike #12) with various statuses.
+                </p>
+                <p style="margin-top: 10px;">
+                    <strong>This prototype does NOT support:</strong>
+                </p>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li>Adding new bicycles to the system</li>
+                    <li>Removing bicycles from the system</li>
+                    <li>Editing bicycle details (name, ID, etc.)</li>
+                </ul>
+                <p style="margin-top: 10px;">
+                    The focus of this prototype is on the <strong>core workflow of status updates</strong> (Available ↔ Rented ↔ Under Repair), 
+                    which represents the primary daily task for front desk staff. The addition/removal of bicycles would typically be an 
+                    administrative function performed less frequently by management personnel, which is outside the scope of this prototype.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>CS 732/832 - Human Computer Interaction | HW4 Prototype Submission | Spring 2026</p>
+        <p style="margin-top: 5px;">ODU RecWell Bicycle Inventory Dashboard | Rochana Obadage</p>
+    </div>
+</body>
+</html>
