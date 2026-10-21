@@ -154,7 +154,23 @@
 
   <!-- BibTeX content -->
   <pre id="bibtex-prp-7" class="p-3 mb-0 text-left">
-
+@inproceedings{10.1145/3805696.3846023,
+	author = {Obadage, Rochana R. and Salsabil, Lamia and Alam, Sawood and Ingram, William and Banerjee, Bipasha and Fox, Edward and Wu, Jian},
+	title = {URL Extraction from Scholarly Documents: A Cross-Format Comparative Analysis},
+	year = {2026},
+	isbn = {9798400725975},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/3805696.3846023},
+	doi = {10.1145/3805696.3846023},
+	abstract = {URLs in scholarly documents link to rich external resources such as datasets, software, publications, and websites. Extracting these URLs is crucial in the data preparation stage of many downstream tasks, such as link rot analysis, web crawling, and building knowledge graphs. However, existing studies often downplay this phase, simply extracting URLs from a single format, usually text directly converted from PDFs. We present a systematic study evaluating URL extraction across six input formats (text with annotation layer, LaTeX, HTML, XML, Markdown, and PNG converted from PDF). To support the evaluation, we compiled a benchmark dataset consisting of 2,338 manually annotated URLs from 200 arXiv papers spanning a wide range of domains over a 33-year period. In addition to evaluating individual file formats, we also compared 63 composite input-format combinations. Our extensive evaluations indicate that TEXTWAL achieves the best performance among single-format inputs, while TEXTWAL+LaTeX achieves the best overall URL extraction performance. The same trend is observed for URLs linking to open-access datasets and software. To further validate these findings, we apply our format-specific URL extraction pipelines to a longitudinal random sample of 364,744 arXiv papers spanning 33 years. We observe a sharp increase in URL density after 2015, along with remarkable differences in URL extraction across file formats over time. Overall, our study highlights the importance of selecting an appropriate format for URL extraction from scholarly documents. The dataset and code are publicly available at: https://github.com/lamps-lab/arxiv-url-bench.},
+	booktitle = {Proceedings of the 26th ACM/IEEE Joint Conference on Digital Libraries},
+	articleno = {17},
+	numpages = {11},
+	keywords = {URL extraction, scholarly documents, arXiv, open-access, datasets, software, OADS, PDF processing, LaTeX, VLM, LLM, digital preservation, reproducibility, URL complexity, temporal analysis},
+	location = {Frisco, USA},
+	series = {JCDL '26}
+}
 </pre>
                         </div>
                     </p>
@@ -197,7 +213,23 @@
 
   <!-- BibTeX content -->
   <pre id="bibtex-prp-6" class="p-3 mb-0 text-left">
-
+@inproceedings{10.1145/3805696.3846039,
+	author = {Salsabil, Lamia and Obadage, Rochana R. and Banerjee, Bipasha and Alam, Sawood and Ingram, William and Fox, Edward and Wu, Jian},
+	title = {End-to-End Contextualized URL Extraction from Scholarly Papers},
+	year = {2026},
+	isbn = {9798400725975},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/3805696.3846039},
+	doi = {10.1145/3805696.3846039},
+	abstract = {Uniform resource locators (URLs) have become ubiquitous in scholarly papers, and extracting them is an upstream task for downstream analyses such as link rot analyses, meta-analyses, and reproducibility studies. Most existing works extract URLs with a monolithic method, such as a regular expression, which assumes URLs appear in a perfect form throughout the text. In practice, layout variety and conversion errors leave many URLs imperfect, without a scheme, or truncated across lines and columns. Although context around a URL is needed to understand its role in a paper, a URL in a footnote or reference sits apart from its citing sentence. We present VisURLX, a pipeline built on a multimodal large language model (MLLM) that reads each rendered page image directly. It preserves page layout such as superscript markers and column structure, and extracts each URL with its target sentence and surrounding context across the body, footnotes, and references. We evaluate VisURLX on sURL-3K, our benchmark of 3,376 manually annotated target sentences with their URLs, using a proprietary backend (GPT-5-mini) and an open-weight backend (Qwen3-VL-32B). VisURLX on GPT-5-mini achieves an end-to-end F1 score of 86.86\%, about 20 points above the strongest heuristic pipeline built on GROBID, PyMuPDF-Layout, and olmOCR. As one application, we classify the extracted URLs into open access datasets and software (OADS), reaching a weighted F1 score of 83.1\%. The code, data, and the full text of every prompt are available at .},
+	booktitle = {Proceedings of the 26th ACM/IEEE Joint Conference on Digital Libraries},
+	articleno = {46},
+	numpages = {12},
+	keywords = {URL extraction, scholarly documents, multimodal large language models, citation context, open access datasets and software, reproducibility, digital libraries},
+	location = {Frisco, USA},
+	series = {JCDL '26}
+}
 </pre>
                         </div>
                     </p>
